@@ -143,10 +143,15 @@ h1 {
 function checkPassword() {
     const pass = document.getElementById("password").value;
 
-    if (pass === "iloveyou") {   // 🔥 CHANGE PASSWORD HERE
+    if (pass === "iloveyou") {  // change password here
         document.getElementById("loginBox").style.display = "none";
         document.getElementById("mainContent").classList.remove("hidden");
         document.getElementById("gallery").classList.add("show");
+
+        // 🔥 PLAY MUSIC AFTER CLICK (this will work)
+        const music = document.getElementById("bgMusic");
+        music.play();
+
         startHearts();
     } else {
         alert("Wrong password 💔 Try again!");
