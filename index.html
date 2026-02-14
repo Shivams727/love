@@ -16,7 +16,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Center login */
+/* Login Box */
 #loginBox {
     position: absolute;
     top: 50%;
@@ -25,21 +25,22 @@ body {
 }
 
 input {
-    padding: 10px;
-    border-radius: 20px;
+    padding: 12px;
+    border-radius: 25px;
     border: none;
     text-align: center;
+    width: 200px;
 }
 
 button {
-    padding: 10px 25px;
-    border-radius: 25px;
+    padding: 12px 30px;
+    border-radius: 30px;
     border: none;
     background: #ff007f;
     color: white;
     font-size: 16px;
     cursor: pointer;
-    box-shadow: 0 0 15px #ff007f;
+    box-shadow: 0 0 20px #ff007f;
     transition: 0.3s;
 }
 
@@ -55,7 +56,7 @@ button:hover {
 h1 {
     margin-top: 60px;
     font-size: 45px;
-    animation: glow 1.5s infinite alternate;
+    animation: glow 2s infinite alternate;
 }
 
 @keyframes glow {
@@ -64,7 +65,8 @@ h1 {
 }
 
 .names {
-    font-size: 50px;
+    font-size: 55px;
+    margin-top: 20px;
     animation: heartbeat 1s infinite;
 }
 
@@ -74,9 +76,14 @@ h1 {
     100% { transform: scale(1); }
 }
 
+p {
+    font-size: 20px;
+    margin: 20px;
+}
+
 .gallery {
     opacity: 0;
-    transition: 2s;
+    transition: opacity 2s ease-in-out;
 }
 
 .gallery.show {
@@ -87,7 +94,7 @@ h1 {
     width: 250px;
     border-radius: 20px;
     margin: 15px;
-    box-shadow: 0 0 20px #ff00ff;
+    box-shadow: 0 0 25px #ff00ff;
     transition: 0.4s;
 }
 
@@ -111,6 +118,7 @@ h1 {
 
 <body>
 
+<!-- Password Screen -->
 <div id="loginBox">
     <h2>🔐 Enter Our Secret Password</h2>
     <input type="password" id="password" placeholder="Enter password">
@@ -118,7 +126,9 @@ h1 {
     <button onclick="checkPassword()">Open My Heart ❤️</button>
 </div>
 
+<!-- Main Romantic Content -->
 <div id="mainContent" class="hidden">
+
     <h1>Happy Valentine’s Day ❤️</h1>
     <div class="names">S ❤️ P</div>
 
@@ -132,34 +142,35 @@ h1 {
 
     <p>I Love You More Than Words Can Say ❤️</p>
 
-    <audio autoplay loop>
+    <!-- Music -->
+    <audio id="bgMusic" loop>
         <source src="fanaa_mere_haath.mp3" type="audio/mp3">
     </audio>
+
 </div>
 
 <script>
 
-/* PASSWORD CHECK */
-<script>
+/* Password Check */
 function checkPassword() {
     const pass = document.getElementById("password").value;
 
-    if (pass === "iloveyou") {  // change password here
+    if (pass === "iloveyou") {   // 🔥 CHANGE PASSWORD HERE
+
         document.getElementById("loginBox").style.display = "none";
         document.getElementById("mainContent").classList.remove("hidden");
         document.getElementById("gallery").classList.add("show");
 
-        // 🔥 PLAY MUSIC AFTER CLICK (this will work)
+        // Play music after user interaction
         const music = document.getElementById("bgMusic");
         music.play();
 
         startHearts();
+
     } else {
         alert("Wrong password 💔 Try again!");
     }
 }
-</script>
-
 
 /* Floating Hearts */
 function startHearts() {
